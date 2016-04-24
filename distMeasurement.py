@@ -64,9 +64,14 @@ if data_addr == dest_ip:
     break
 '''
 print(data_str)
-go = bin(int(binascii.hexlify(data_str), 16))
+msg_type=bin(int(binascii.hexlify(data_str[20:22]), 16))
+msg_code=bin(int(binascii.hexlify(data_str[22:24]), 16))
+msg_cs=bin(int(binascii.hexlify(data_str[24:27]), 16))
+msg_rest=data_str[27:]
 
-print(go)
-
+print("type: ", msg_type)
+print("code: ", msg_code)
+print("checksum: ", msg_cs)
+print(msg_rest)
 
 
