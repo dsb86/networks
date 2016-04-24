@@ -3,7 +3,7 @@ import binascii
 local_ip = '127.0.0.1'
 local_port = 18675
 
-dest_ip = "216.58.192.174"
+dest_ip = "129.22.108.21"
 dest_port = 34567
 
 
@@ -12,7 +12,7 @@ data = r'Lor dolor sit amet, consectetur adipiscing elit.Pellentesque id velit i
 
 icmp = socket.getprotobyname('icmp')
 udp = socket.getprotobyname('udp')
-ttl = 1
+ttl = 30
 #while True:
 # create receiving socket for icmp messages
 recv_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, icmp)
