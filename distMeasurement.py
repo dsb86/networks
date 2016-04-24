@@ -63,8 +63,8 @@ ttl += 1
 if data_addr == dest_ip:
     break
 '''
-print(binascii.a2b_uu(data_str))
-
+go = bin(int(binascii.hexlify(data_str), 16))
+print(go)
 
 
 
