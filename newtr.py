@@ -44,11 +44,12 @@ def main(dest_name):
         send_socket.sendto("", (dest_name, port))
         curr_addr = None
         curr_name = None
+        curr_data = None
         finished = False
         tries = 3
         while not finished and tries > 0:
             try:
-                _, curr_addr = recv_socket.recvfrom(512)
+                curr_data, curr_addr = recv_socket.recvfrom(512)
                 finished = True
                 curr_addr = curr_addr[0]
                 try:
@@ -69,7 +70,7 @@ def main(dest_name):
             curr_host = "%s (%s)" % (curr_name, curr_addr)
         else:
             curr_host = ""
-        sys.stdout.write("%s\n" % (curr_host))
+        sys.stdout.write("%s\n%s\n" % (curr_data, curr_host))
 
         ttl += 1
         if curr_addr == dest_addr or ttl > max_hops:
