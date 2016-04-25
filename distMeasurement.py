@@ -65,7 +65,7 @@ if data_addr == dest_ip:
 '''
 print(data_str)
 msg_type=bin(int(binascii.hexlify(data_str), 16))
-msg_type=bin(int(binascii.hexlify(data_str[20:22]), 16))
+msg_type=bin(int(binascii.hexlify(data_str[19:20]), 16))
 msg_code=bin(int(binascii.hexlify(data_str[22:24]), 16))
 msg_cs=bin(int(binascii.hexlify(data_str[24:27]), 16))
 msg_rest=data_str[27:]
