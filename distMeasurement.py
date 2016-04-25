@@ -4,7 +4,7 @@ import binascii
 local_ip = '127.0.0.1'
 local_port = 18675
 
-dest_ip = "204.79.197.200"
+dest_ip = socket.gethostbyname("www.qq.com")
 dest_port = 34567
 
 
@@ -13,7 +13,7 @@ data="test"
 
 icmp = socket.getprotobyname('icmp')
 udp = socket.getprotobyname('udp')
-ttl = 30
+ttl = 3
 #while True:
 # create receiving socket for icmp messages
 recv_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, icmp)
