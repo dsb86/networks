@@ -1,6 +1,6 @@
 import socket
 import binascii
-import eventlet.timeout
+
 local_ip = '127.0.0.1'
 local_port = 18675
 
