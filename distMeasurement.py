@@ -4,7 +4,7 @@ import binascii
 local_ip = '127.0.0.1'
 local_port = 18675
 
-dest_ip = socket.gethostbyname("www.qq.com")
+dest_ip = socket.gethostbyname("sogou.com")
 dest_port = 34567
 
 
