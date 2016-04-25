@@ -1,5 +1,6 @@
 import socket
 import binascii
+import eventlet.timeout
 local_ip = '127.0.0.1'
 local_port = 18675
 
@@ -32,6 +33,7 @@ send_socket.sendto(data, (dest_ip, dest_port))
 data_str = None
 data_addr = None
 
+recv_socket.settimeout(5)
 try:
     # recvfrom is blocking statement set to 4096 because assuming 1500b file possibility
     # from icmp message
