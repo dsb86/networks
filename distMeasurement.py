@@ -39,9 +39,7 @@ try:
     data_str, data_addr = recv_socket.recvfrom(4096)
 
     print(data_str)
-    go = bin(int(binascii.hexlify(data_str), 16))
-
-    print(go)
+    print(len(data_str)-28)
 except socket.error:
 
     pass
