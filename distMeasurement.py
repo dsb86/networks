@@ -46,7 +46,7 @@ finally:
 print(data_addr)
 try:
     one, two, three = socket.gethostbyaddr(data_addr)
-    print((socket.gethostbyaddr(data_addr)[0]))
+    print(one)
 except socket.error:
     pass
 print(data_str)
