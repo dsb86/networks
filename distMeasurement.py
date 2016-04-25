@@ -13,7 +13,7 @@ data="test"
 
 icmp = socket.getprotobyname('icmp')
 udp = socket.getprotobyname('udp')
-ttl = 3
+ttl = 32
 #while True:
 # create receiving socket for icmp messages
 recv_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, icmp)
