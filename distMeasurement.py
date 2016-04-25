@@ -43,7 +43,11 @@ except socket.error:
 finally:
     send_socket.close()
     recv_socket.close()
-
+print(data_addr)
+try:
+    print(socket.gethostbyaddr(data_addr))
+except socket.error:
+    pass
 print(data_str)
 msg_full=bin(int(binascii.hexlify(data_str), 16))
 
