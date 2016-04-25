@@ -13,7 +13,7 @@ data = r'Lor dolor sit amet, consectetur adipiscing elit.Pellentesque id velit i
 
 icmp = socket.getprotobyname('icmp')
 udp = socket.getprotobyname('udp')
-ttl = 1
+ttl = 30
 #while True:
 # create receiving socket for icmp messages
 recv_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, icmp)
@@ -37,14 +37,7 @@ try:
     # recvfrom is blocking statement set to 4096 because assuming 1500b file possibility
     # from icmp message
     data_str, data_addr = recv_socket.recvfrom(4096)
-    '''
-    try:
-        # DNS Resolution
-        curr_name = socket.gethostbyaddr(data_addr)
-    except socket.error:
-        # Already Resolved
-        curr_name = data_addr
-    '''
+
     print(data_str)
     go = bin(int(binascii.hexlify(data_str), 16))
 
@@ -55,17 +48,6 @@ except socket.error:
 finally:
     send_socket.close()
     recv_socket.close()
-'''
-if data_addr is not None:
-    curr_host = "%s (%s)" % (curr_name, curr_addr)
-else:
-    curr_host = "*"
-print
-"%d\t%s" % (ttl, curr_host)
-ttl += 1
-if data_addr == dest_ip:
-    break
-'''
 
 
 
