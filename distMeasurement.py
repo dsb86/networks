@@ -45,7 +45,7 @@ finally:
     recv_socket.close()
 print(data_addr)
 try:
-    print(socket.gethostbyaddr(data_addr)[0])
+    print((socket.gethostbyaddr(data_addr)[0]))
 except socket.error:
     pass
 print(data_str)
