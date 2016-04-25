@@ -12,7 +12,7 @@ data = r'Lor dolor sit amet, consectetur adipiscing elit.Pellentesque id velit i
 
 icmp = socket.getprotobyname('icmp')
 udp = socket.getprotobyname('udp')
-ttl = 2
+ttl = 30
 #while True:
 # create receiving socket for icmp messages
 recv_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, icmp)
