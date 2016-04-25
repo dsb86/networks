@@ -4,7 +4,7 @@ import binascii
 local_ip = '127.0.0.1'
 local_port = 18675
 
-dest_ip = socket.gethostbyname("www.google.com")
+dest_ip = socket.gethostbyname("www.case.edu")
 dest_port = 34567
 
 
