@@ -1,10 +1,10 @@
+
 import socket
 import binascii
-
 local_ip = '127.0.0.1'
 local_port = 18675
 
-dest_ip = socket.gethostbyname("www.case.edu")
+dest_ip = "216.58.192.174"
 dest_port = 34567
 
 
@@ -13,8 +13,8 @@ data = r'Lor dolor sit amet, consectetur adipiscing elit.Pellentesque id velit i
 
 icmp = socket.getprotobyname('icmp')
 udp = socket.getprotobyname('udp')
-ttl = 30
-
+ttl = 1
+#while True:
 # create receiving socket for icmp messages
 recv_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, icmp)
 # create outgoing socket to send udp requests
@@ -33,19 +33,39 @@ send_socket.sendto(data, (dest_ip, dest_port))
 data_str = None
 data_addr = None
 
-recv_socket.settimeout(5)
 try:
     # recvfrom is blocking statement set to 4096 because assuming 1500b file possibility
     # from icmp message
     data_str, data_addr = recv_socket.recvfrom(4096)
+    '''
+    try:
+        # DNS Resolution
+        curr_name = socket.gethostbyaddr(data_addr)
+    except socket.error:
+        # Already Resolved
+        curr_name = data_addr
+    '''
+
 except socket.error:
+
     pass
 finally:
     send_socket.close()
     recv_socket.close()
-print(data_addr)
+'''
+if data_addr is not None:
+    curr_host = "%s (%s)" % (curr_name, curr_addr)
+else:
+    curr_host = "*"
+print
+"%d\t%s" % (ttl, curr_host)
+ttl += 1
+if data_addr == dest_ip:
+    break
+'''
 print(data_str)
-msg_full=bin(int(binascii.hexlify(data_str), 16))
+go = bin(int(binascii.hexlify(data_str), 16))
 
+print(go)
 
 
