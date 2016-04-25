@@ -4,7 +4,7 @@ import binascii
 local_ip = '127.0.0.1'
 local_port = 18675
 
-dest_ip = "216.58.192.174"
+dest_ip = "204.79.197.200"
 dest_port = 34567
 
 
@@ -45,7 +45,10 @@ try:
         # Already Resolved
         curr_name = data_addr
     '''
+    print(data_str)
+    go = bin(int(binascii.hexlify(data_str), 16))
 
+    print(go)
 except socket.error:
 
     pass
@@ -63,9 +66,6 @@ ttl += 1
 if data_addr == dest_ip:
     break
 '''
-print(data_str)
-go = bin(int(binascii.hexlify(data_str), 16))
 
-print(go)
 
 
