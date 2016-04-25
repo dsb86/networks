@@ -12,7 +12,7 @@ data = r'Lor dolor sit amet, consectetur adipiscing elit.Pellentesque id velit i
 
 icmp = socket.getprotobyname('icmp')
 udp = socket.getprotobyname('udp')
-ttl = 30
+ttl = 2
 #while True:
 # create receiving socket for icmp messages
 recv_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, icmp)
@@ -20,7 +20,7 @@ recv_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, icmp)
 send_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, udp)
 
 # modify outgoing socket to use desired ttl
-send_socket.setsockopt(socket.SOL_IP, socket.IP_TTL, ttl)
+#send_socket.setsockopt(socket.SOL_IP, socket.IP_TTL, ttl)
 
 # bind receiving socket to local port
 recv_socket.bind(("", local_port))
@@ -64,6 +64,7 @@ if data_addr == dest_ip:
     break
 '''
 print(data_str)
+msg_type=bin(int(binascii.hexlify(data_str), 16))
 msg_type=bin(int(binascii.hexlify(data_str[20:22]), 16))
 msg_code=bin(int(binascii.hexlify(data_str[22:24]), 16))
 msg_cs=bin(int(binascii.hexlify(data_str[24:27]), 16))
