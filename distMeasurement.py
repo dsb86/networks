@@ -50,6 +50,7 @@ for c in range (0, 10, 1):
         print(data_str)
         print(len(data_str)-28)
     except socket.error:
+        print("No Response: ", dest_ip)
         pass
     finally:
         send_socket.close()
