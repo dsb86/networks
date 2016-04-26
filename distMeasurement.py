@@ -33,7 +33,7 @@ for c in range (0, 10, 1):
     recv_socket.bind(("", local_port))
 
     # send datagram
-    send_socket.sendto(data, (dest_ip, dest_port))
+    send_socket.sendto(data, (dest_ip, local_port))
 
     # create variables for incoming data
     data_str = None
