@@ -2,6 +2,8 @@
 import socket
 import time
 import struct
+from timeit import default_timer
+
 local_ip = '127.0.0.1'
 local_port = 18675
 
@@ -48,9 +50,9 @@ for c in range (0, 10, 1):
     try:
         # recvfrom is blocking statement set to 4096 because assuming 1500b file possibility
         # from icmp message
-        start = time.clock()
+        start = default_timer()
         data_str, data_addr = recv_socket.recvfrom(4096)
-        finish = time.clock()
+        finish = default_timer()
         rtt = finish - start
         final_ttl, protocol = struct.unpack("!xxxxxxxxBBxxxxxxxxxx", data_str[28:48])
         print "Hops: ", ttl - int(final_ttl)
