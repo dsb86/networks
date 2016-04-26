@@ -25,7 +25,7 @@ for c in range (0, 10, 1):
     homeLat = home.location.latitude
     homeLon = home.location.longitude
 
-    radius = 6371000
+    radius = 6371
     homeLat = math.radians(homeLat)
     homeLon = math.radians(homeLon)
 
@@ -35,10 +35,10 @@ for c in range (0, 10, 1):
     dLat = awayLat-homeLat
     dLon = awayLon - homeLon
 
-    a = math.pow(math.sin(dLat/2), 2) + math.cos(homeLat) * math.cos(awayLat) + math.pow(math.sin(dLon/2), 2)
-    b = 2* math.atan2(math.sqrt(a), math.sqrt(1-a))
+    a = math.sin(dLat/2)**2 + math.cos(homeLat) * math.cos(awayLat) * math.sin(dLon/2)**2
+    b = 2*math.asin(a)
     d = radius * b
 
-    print "Distance is: ", d
+    print "Distance is: ", d, "km"
 
 reader.close()
