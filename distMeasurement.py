@@ -50,11 +50,9 @@ for c in range (0, 10, 1):
         # from icmp message
         data_str, data_addr = recv_socket.recvfrom(4096)
         final_ttl, protocol = struct.unpack("!xxxxxxxxBBxxxxxxxxxx", data_str[28:48])
-        print ("The number of hops to this IP is: ", ttl - int(final_ttl), " hops")
-        icmp_length = struct.unpack("!xxH", data[0:4])
-        print("The number of bytes from the original datagram is:", icmp_length[0] - 28, " bytes\n")
-        #print(data_str)
-        #print(len(data_str)-28)
+        print "Hops: ", ttl - int(final_ttl)
+        icmp_length = struct.unpack("!xxH", data_str[0:4])
+        print "Bytes returned:", icmp_length[0] - 28
     except socket.error:
         print("No Response: ", dest_ip)
         pass
