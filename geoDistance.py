@@ -39,6 +39,6 @@ for c in range (0, 10, 1):
     b = 2* math.atan2(math.sqrt(a), math.sqrt(1-a))
     d = radius * b
 
-    print "Distance is: " + d
+    print "Distance is: ", d
 
 reader.close()
