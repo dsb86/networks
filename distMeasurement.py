@@ -10,7 +10,7 @@ dest_port = 34567
 
 f= open("targets.txt", 'r')
 
-for c in range (0, 10, 1):
+for c in range (0, 11, 1):
     dest_ip = f.readline()
     cut = len(dest_ip)-1
     dest_ip = dest_ip[0:cut]
