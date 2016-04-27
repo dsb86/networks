@@ -7,15 +7,19 @@ myIP=socket.gethostbyname(socket.gethostname())
 
 # Open file containing ip list
 f= open("targets.txt", 'r')
+
+# Open reader to geo database
 reader = geoip2.database.Reader('../GeoLite2-City.mmdb')
 
 for c in range (0, 10, 1):
+    # pull ip from file
     dest_ip = f.readline()
 
     # Cut separation characters from string
     cut = len(dest_ip) - 1
     dest_ip = dest_ip[0:cut]
 
+    # find lat lon variables
     home = reader.city(myIP)
     away = reader.city(dest_ip)
 
@@ -25,6 +29,7 @@ for c in range (0, 10, 1):
     homeLat = home.location.latitude
     homeLon = home.location.longitude
 
+    # haversine formula
     radius = 6371
     homeLat = math.radians(homeLat)
     homeLon = math.radians(homeLon)
